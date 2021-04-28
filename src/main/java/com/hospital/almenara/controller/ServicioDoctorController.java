@@ -26,6 +26,12 @@ public class ServicioDoctorController
         return service.findAll();
     }
 
+    @GetMapping("/vr2")
+    @PreAuthorize("hasRole('ADMIN') OR hasRole('USER')")
+    public List<ServicioDoctor> find2(){
+        return service.findAll2();
+    }
+
     @GetMapping("/{idSpecialty}")
     @PreAuthorize("hasRole('ADMIN') OR hasRole('USER')")
     public List<ServicioDoctor> find(@PathVariable Long idSpecialty){
@@ -38,6 +44,18 @@ public class ServicioDoctorController
     {
         return service.findAllByServiceIdAndPeriod(idServicio, idAnio);
     }
+
+    @GetMapping("/report2/{idServicio}/{idAnio}")
+    @PreAuthorize("hasRole('ADMIN') OR hasRole('USER')")
+
+    public List<ServicioDoctor> findByServicioAndAnioAndMes2(@PathVariable Long idServicio, @PathVariable Long idAnio)
+    {
+
+        return service.findAllByServiceIdAndPeriod2(idServicio, idAnio);
+    }
+
+
+
 
 //    @GetMapping("/{idService}")
 //    public List<ServicioDoctor> findByServiceId(@PathVariable Long idService)
@@ -70,6 +88,38 @@ public class ServicioDoctorController
         headers.setCacheControl("must-revalidate, post-check=0, pre-check=0");
         return new ResponseEntity<>(contents, headers, HttpStatus.OK);
     }
+
+
+
+    @GetMapping("/vr2/pdf")
+    @PreAuthorize("hasRole('ADMIN') OR hasRole('USER')")
+        public ResponseEntity<byte[]> getListServicioDoctorPdf2()
+    {
+        byte[] contents = service.getListServicioDoctorsPdf2().toByteArray();
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.parseMediaType("application/pdf"));
+        String filename = "medicosPorServicio2.pdf";
+        headers.setContentDispositionFormData(filename, filename);
+        headers.setCacheControl("must-revalidate, post-check=0, pre-check=0");
+        return new ResponseEntity<>(contents, headers, HttpStatus.OK);
+    }
+
+    @GetMapping("/vr2/pdf/{idSpacialty}")
+    @PreAuthorize("hasRole('ADMIN') OR hasRole('USER')")
+    public ResponseEntity<byte[]> getListServicioDoctorsPdfByIdSpecialty2(@PathVariable Long idSpacialty)
+    {
+        byte[] contents = service.getListServicioDoctorsPdfByIdSpecialty2(idSpacialty).toByteArray();
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.parseMediaType("application/pdf"));
+        String filename = "medicosPorServicio2.pdf";
+        headers.setContentDispositionFormData(filename, filename);
+        headers.setCacheControl("must-revalidate, post-check=0, pre-check=0");
+        return new ResponseEntity<>(contents, headers, HttpStatus.OK);
+    }
+
+
+
+
 
     @GetMapping("/pdf/medicos-residentes-otras-especialidades-por-periodo/{idServicio}/{idAnio}")
     @PreAuthorize("hasRole('ADMIN') OR hasRole('USER')")

@@ -10,4 +10,7 @@ import java.util.List;
 public interface ServicioDoctorRepository extends JpaRepository<ServicioDoctor, Long>
 {
     List<ServicioDoctor> findAllByDoctorSpecialtyId(Long specialtyId);
+//    List<ServicioDoctor> findAllByDoctorSpecialtyIdandAndDoctorGrupoAndDoctorStatus(Long specialtyId,grupo, Bolstatus);
+
+
 }

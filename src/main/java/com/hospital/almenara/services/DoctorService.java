@@ -62,19 +62,42 @@ public class DoctorService {
     SpecialtyService specialtyService;
 
     public List<Doctor> findAll(){
-        return repository.findAll();
+        return repository.findAll().stream().filter(doctor -> doctor.getStatus()&&doctor.getGrupo()==null).collect(Collectors.toList());
+    }
+
+
+    public List<Doctor> findAll2(){
+        return repository.findAll().stream().filter(doctor -> doctor.getStatus()&&doctor.getGrupo()!=null).collect(Collectors.toList());
     }
 
     public Doctor findById(Long id){
         return repository.findById(id).orElse(null);
     }
 
+
+//    crear doctor de julio a junio
     public Doctor create(Doctor doctor)
     {
         Doctor createdDoctor = repository.save(doctor);
-        ServicioDoctor initialServDoctor = this.initializeServiceDoctor(createdDoctor);
+//        ServicioDoctor initialServDoctor =
+                this.initializeServiceDoctor(createdDoctor,"1");
         return createdDoctor;
     }
+
+
+
+    //    crear doctor de Diciembre a Noviembre
+    public Doctor create2(Doctor doctor)
+    {
+        doctor.setGrupo("2");
+        Doctor createdDoctor = repository.save(doctor);
+//        ServicioDoctor initialServDoctor =
+        this.initializeServiceDoctor(createdDoctor,"2");
+        return createdDoctor;
+    }
+
+
+
 
     public List<Doctor> findAllByTeamId(Long teamId){
         return repository.findAllByTeamIdOrderByNivelDesc(teamId);
@@ -105,7 +128,7 @@ public class DoctorService {
         if (doctor.getCmp() != null) updObj.setCmp(doctor.getCmp());
         if (doctor.getEmail() != null) updObj.setEmail(doctor.getEmail());
         if (doctor.getPhone() != null) updObj.setPhone(doctor.getPhone());
-        if (doctor.getStatus() != null) updObj.setStatus(doctor.getStatus());
+//        if (doctor.getStatus() != null) updObj.setStatus(doctor.getStatus());
         // if (doctor.getTeam() != null) updObj.setTeam(doctor.getTeam());
         if (doctor.getNivel() != null) updObj.setNivel(doctor.getNivel());
         if (doctor.getRegisteredAt() != null) updObj.setRegisteredAt(doctor.getRegisteredAt());
@@ -117,6 +140,14 @@ public class DoctorService {
         DoctorPdf studentPdf = new DoctorPdf();
         return studentPdf.getListDoctors(doctors);
     }
+
+
+    public ByteArrayOutputStream getListDoctorsPdf2() {
+        List<Doctor> doctors = findAll2();
+        DoctorPdf studentPdf = new DoctorPdf();
+        return studentPdf.getListDoctors(doctors);
+    }
+
 
 	public List<DoctoresGruposDTO> findAllByTeamIdCategoria(Long teamId, Long categoria) {
 		
@@ -272,7 +303,7 @@ public class DoctorService {
         return doctor;
     }
 
-    public ServicioDoctor initializeServiceDoctor(Doctor doctor)
+    public ServicioDoctor initializeServiceDoctor(Doctor doctor,String grupo)
     {
         Calendar calendar = new GregorianCalendar();
         calendar.setTime(doctor.getRegisteredAt());
@@ -280,13 +311,13 @@ public class DoctorService {
         ServicioDoctor initializeServicioDoctor     = new ServicioDoctor();
         Periodo initializePeriodo                   = periodoService.findByAnioInicio(initializeAnio+"");
 
-        List<ServicioDelegado> initServicioDelegado = servicioDelegadoService.initializeServicioDelegado();
+//        List<ServicioDelegado> initServicioDelegado = servicioDelegadoService.initializeServicioDelegado();
 
         Map<Integer, List<ServicioDelegado>> initServiciosDelegados = new HashMap<>();
 
-        initServiciosDelegados.put(initializeAnio, servicioDelegadoService.createList(servicioDelegadoService.initializeServicioDelegado()));
-        initServiciosDelegados.put(initializeAnio+1, servicioDelegadoService.createList(servicioDelegadoService.initializeServicioDelegado()));
-        initServiciosDelegados.put(initializeAnio+2, servicioDelegadoService.createList(servicioDelegadoService.initializeServicioDelegado()));
+        initServiciosDelegados.put(initializeAnio, servicioDelegadoService.createList(servicioDelegadoService.initializeServicioDelegado(grupo)));
+        initServiciosDelegados.put(initializeAnio+1, servicioDelegadoService.createList(servicioDelegadoService.initializeServicioDelegado(grupo)));
+        initServiciosDelegados.put(initializeAnio+2, servicioDelegadoService.createList(servicioDelegadoService.initializeServicioDelegado(grupo)));
 
         List<AnioAcademico> initAnioAcade           = anioAcademicoService.generateAniosAcademicos(initializeAnio);
 
@@ -325,5 +356,18 @@ public class DoctorService {
         // validate registeredAt
 
         return true;
+    }
+
+
+    public String deleteDoctorByDocumento(String document){
+        Doctor deleteDoctor = repository.findByDocument(document);
+        System.out.println(deleteDoctor.getName());
+        assert  repository.existsByDocument(document);
+        deleteDoctor.setStatus(!deleteDoctor.getStatus());
+        repository.save(deleteDoctor);
+        return "Eliminado exitosamente";
+
+
+
     }
 }

@@ -25,13 +25,15 @@ public class ServicioDelegadoService
         return repository.save(servicioDelegado);
     }
 
-    public List<ServicioDelegado> initializeServicioDelegado()
+
+//    agregar los meses
+    public List<ServicioDelegado> initializeServicioDelegado(String grupo)
     {
         List<ServicioDelegado> iniListServDele = new ArrayList<>();
-        List<Mes> meses = mesServicio.getAll();
+        List<Mes> meses = mesServicio.getAllbyGrupo(grupo);
         // Generando el listado de Servicios Delegados con solo el mes seteado
         iniListServDele = meses.stream()
-                               .map(mes -> new ServicioDelegado(mes))
+                               .map(mes ->new ServicioDelegado(mes))
                                .collect(Collectors.toList())
                                 ;
 

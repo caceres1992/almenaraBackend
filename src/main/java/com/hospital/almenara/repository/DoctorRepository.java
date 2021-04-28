@@ -16,4 +16,5 @@ public interface DoctorRepository extends JpaRepository<Doctor, Long>
     List<Doctor> findAllByTeamIdOrderByNivelDesc(Long teamId);
     List<Doctor> findAllByDocument(String document);
     List<Doctor> findAllByCmp(String cmp);
+
 }

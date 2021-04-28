@@ -8,7 +8,9 @@ import com.hospital.almenara.repository.SchoolRepository;
 import com.hospital.almenara.repository.SpecialtyRepository;
 import com.hospital.almenara.services.SpecialtyService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
@@ -47,6 +49,21 @@ public class SpecialtyController {
     public Specialty create(@RequestBody Specialty servicio)
     {
         return service.create(servicio);
+    }
+
+
+
+    @GetMapping("/pdf")
+    @PreAuthorize("hasRole('ADMIN') OR hasRole('USER')")
+    public ResponseEntity<byte[]> getListServicioDoctorPdf()
+    {
+        byte[] contents = service.getListEspecialidadesPdf().toByteArray();
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.parseMediaType("application/pdf"));
+        String filename = "especialidades.pdf";
+        headers.setContentDispositionFormData(filename, filename);
+        headers.setCacheControl("must-revalidate, post-check=0, pre-check=0");
+        return new ResponseEntity<>(contents, headers, HttpStatus.OK);
     }
 
 }

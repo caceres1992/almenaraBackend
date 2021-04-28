@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @CrossOrigin(origins = {"http://localhost:3000", "https://frosty-bohr-e33186.netlify.app"})
 @RestController
@@ -50,24 +51,23 @@ public class DoctorController {
         return ResponseEntity.status(HttpStatus.OK).body(service.findAll());
     }
 
+
+    @GetMapping("/vr2")
+    //@PreAuthorize("hasAnyRole('ADMIN','USER')")
+    public ResponseEntity<List<Doctor>> find2() {
+        return ResponseEntity.status(HttpStatus.OK).body(service.findAll2());
+    }
+
     @GetMapping("/{id}")
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<Doctor> finOne(@PathVariable Long id) {
-        return ResponseEntity.status(HttpStatus.OK).body(service.findById(id));
+        return ResponseEntity.status(HttpStatus.OK).body( service.findById(id));
     }
 
     @PostMapping
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<?> create(/*@Valid*/ @RequestBody Doctor doctor/*, BindingResult result*/) {
-        /*if(result.hasErrors())
-        {   Map<String, String> errorMap = result.getFieldErrors()
-                                                 .stream()
-                                                 .collect(
-                                                         Collectors.toMap(
-                                                                 error -> error.getField(),
-                                                                 error -> error.getDefaultMessage()));
 
-        }*/
         if (repository.existsByDocument(doctor.getDocument())) {
             return ResponseEntity.badRequest().body(new MessageResponse(doctor.getDocument() + " ya se encuentra registrado. Ingresa otro Nro. Documento."));
         } else if (repository.existsByCmp(doctor.getCmp())) {
@@ -76,6 +76,22 @@ public class DoctorController {
             return ResponseEntity.status(HttpStatus.CREATED).body(service.create(doctor));
         }
     }
+
+
+    @PostMapping("/vr2")
+    @PreAuthorize("hasRole('ADMIN')")
+    public ResponseEntity<?> create2(/*@Valid*/ @RequestBody Doctor doctor/*, BindingResult result*/) {
+
+        if (repository.existsByDocument(doctor.getDocument())) {
+            return ResponseEntity.badRequest().body(new MessageResponse(doctor.getDocument() + " ya se encuentra registrado. Ingresa otro Nro. Documento."));
+        } else if (repository.existsByCmp(doctor.getCmp())) {
+            return ResponseEntity.badRequest().body(new MessageResponse(doctor.getCmp() + " ya se encuentra registrado. Ingresa otro CMP."));
+        } else {
+            return ResponseEntity.status(HttpStatus.CREATED).body(service.create2(doctor));
+        }
+    }
+
+
 
     @PostMapping(value = "/import/doctor")
     @PreAuthorize("hasRole('ADMIN')")
@@ -90,6 +106,22 @@ public class DoctorController {
         });
         return ResponseEntity.status(HttpStatus.OK).body(lstDoctor);
     }
+
+
+    @PostMapping(value = "/import/doctor2")
+    @PreAuthorize("hasRole('ADMIN')")
+    public ResponseEntity<?> saveImportedDoctors2(@RequestBody List<Doctor> lstDoctor)
+    {
+        log.info(lstDoctor.toString());
+        lstDoctor.stream().forEach(d -> {
+            SchoolAgreement schoolAgreement = schoolAgreementService.getSchoolAgreementBySchoolShortName(d.getSchoolAgreement().getSchool().getShortName());
+            log.info(schoolAgreement.getSchool().toString());
+            d.setSchoolAgreement(schoolAgreement);
+            service.create2(d);
+        });
+        return ResponseEntity.status(HttpStatus.OK).body(lstDoctor);
+    }
+
 
     @PutMapping("/{id}")
     @PreAuthorize("hasRole('ADMIN')")
@@ -153,6 +185,17 @@ public class DoctorController {
         return new ResponseEntity<>(contents, headers, HttpStatus.OK);
     }
 
+    @GetMapping("/vr2/pdf")
+    public ResponseEntity<byte[]> getListStudentsPdf2() {
+        byte[] contents = service.getListDoctorsPdf2().toByteArray();
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.parseMediaType("application/pdf"));
+        String filename = "medicos.pdf";
+        headers.setContentDispositionFormData(filename, filename);
+        headers.setCacheControl("must-revalidate, post-check=0, pre-check=0");
+        return new ResponseEntity<>(contents, headers, HttpStatus.OK);
+    }
+
 
     @GetMapping("/findAllTipos")
     @PreAuthorize("hasRole('ADMIN')")
@@ -189,4 +232,12 @@ public class DoctorController {
         return ResponseEntity.status(HttpStatus.OK).body(service.upgradeDoctorLevel());
     }
 
+
+
+    @PatchMapping("/{documento}")
+    @PreAuthorize("hasRole('ADMIN')")
+    public ResponseEntity<?> deleteDoctorByDocumento(@PathVariable String documento)
+    {
+        return ResponseEntity.status(HttpStatus.OK).body(service.deleteDoctorByDocumento(documento));
+    }
 }

@@ -13,8 +13,8 @@ public class MesServicio
     @Autowired
     MesRepository repository;
 
-    public List<Mes> getAll()
+    public List<Mes> getAllbyGrupo(String grupo)
     {
-        return repository.findAll();
+        return repository.findAllByGrupo(grupo);
     }
 }

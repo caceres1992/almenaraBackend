@@ -4,10 +4,13 @@ import com.hospital.almenara.dto.SpecialityDto;
 import com.hospital.almenara.entity.Servicio;
 import com.hospital.almenara.entity.Specialty;
 import com.hospital.almenara.repository.SpecialtyRepository;
+import com.hospital.almenara.view.pdf.SpecialidadesPdf;
 import net.bytebuddy.build.HashCodeAndEqualsPlugin;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.io.ByteArrayOutputStream;
+import java.util.BitSet;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
@@ -69,4 +72,10 @@ public class SpecialtyService {
     }
 
 
+    public ByteArrayOutputStream getListEspecialidadesPdf() {
+        List<Specialty> specialtyList = findAll();
+        SpecialidadesPdf especialidadpdf= new SpecialidadesPdf();
+        return especialidadpdf.getListSpecialty(specialtyList);
+
+    }
 }

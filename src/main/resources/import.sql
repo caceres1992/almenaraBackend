@@ -1189,18 +1189,33 @@ insert into doctor(document,name,paternal_surname,maternal_surname,school_agreem
 insert into doctor(document,name,paternal_surname,maternal_surname,school_agreement_id,specialty_id,plaza_id,campus_id,birth_date,address,cmp,email,phone,status,team_id, nivel_id, registered_at) values('73700513','Angela Daniela','Basurco','Valer',12,13,1,1,'1993-05-04','Av. Arenales 1686 Dpto 202 Lince','77840','ange_x04@hotmail.com','958310722',1,10,3,'2016-12-21')
 insert into doctor(document,name,paternal_surname,maternal_surname,school_agreement_id,specialty_id,plaza_id,campus_id,birth_date,address,cmp,email,phone,status,team_id, nivel_id, registered_at) values('43967147','Ana De los Angeles','Bedoya','Cardenas',12,13,1,1,'1986-12-30','Jr. Huiracocha 1844 Jesús María','72668','anybc_@hotmail.com','947437303',1,9,3,'2016-12-21')
 
-insert into mes(name) values ('Julio')
-insert into mes(name) values ('Agosto')
-insert into mes(name) values ('Septiembre')
-insert into mes(name) values ('Octubre')
-insert into mes(name) values ('Noviembre')
-insert into mes(name) values ('Diciembre')
-insert into mes(name) values ('Enero')
-insert into mes(name) values ('Febrero')
-insert into mes(name) values ('Marzo')
-insert into mes(name) values ('Abril')
-insert into mes(name) values ('Mayo')
-insert into mes(name) values ('Junio')
+insert into mes(name,grupo) values ('Julio','1')
+insert into mes(name,grupo) values ('Agosto','1')
+insert into mes(name,grupo) values ('Septiembre','1')
+insert into mes(name,grupo) values ('Octubre','1')
+insert into mes(name,grupo) values ('Noviembre','1')
+insert into mes(name,grupo) values ('Diciembre','1')
+insert into mes(name,grupo) values ('Enero','1')
+insert into mes(name,grupo) values ('Febrero','1')
+insert into mes(name,grupo) values ('Marzo','1')
+insert into mes(name,grupo) values ('Abril','1')
+insert into mes(name,grupo) values ('Mayo','1')
+insert into mes(name,grupo) values ('Junio','1')
+
+
+insert into mes(name,grupo) values ('Diciembre','2')
+insert into mes(name,grupo) values ('Enero','2')
+insert into mes(name,grupo) values ('Febrero','2')
+insert into mes(name,grupo) values ('Marzo','2')
+insert into mes(name,grupo) values ('Abril','2')
+insert into mes(name,grupo) values ('Mayo','2')
+insert into mes(name,grupo) values ('Junio','2')
+insert into mes(name,grupo) values ('Julio','2')
+insert into mes(name,grupo) values ('Agosto','2')
+insert into mes(name,grupo) values ('Septiembre','2')
+insert into mes(name,grupo) values ('Octubre','2')
+insert into mes(name,grupo) values ('Noviembre','2')
+
 
 insert into periodo(anio_inicio,anio_final,mes_inicio,mes_final) values ('2019','2022','Junio','Julio');
 insert into periodo(anio_inicio,anio_final,mes_inicio,mes_final) values ('2020','2023','Junio','Julio');
@@ -1584,45 +1599,45 @@ insert into servicio_doctor_anio_academico_delegados(anio_academico_delegados_id
 insert into servicio_doctor_anio_academico_delegados(anio_academico_delegados_id, servicio_doctor_id) values (11,4)
 insert into servicio_doctor_anio_academico_delegados(anio_academico_delegados_id, servicio_doctor_id) values (12,4)
 --
---insert into mes_dia (ID_DIA,ID_MES,NOMBRE_DIA,NOMBRE_MES,ANIO_ACADEMICO_ID,TEAM_ID,TIPOS_GUARDIA_ID,anio) values (	1	,	7	,'L','Julio',	1	,	1	,	1	,2019	);
---insert into mes_dia (ID_DIA,ID_MES,NOMBRE_DIA,NOMBRE_MES,ANIO_ACADEMICO_ID,TEAM_ID,TIPOS_GUARDIA_ID,anio) values (	2	,	7	,'M','Julio',	1	,	2	,	1	,2019	);
---insert into mes_dia (ID_DIA,ID_MES,NOMBRE_DIA,NOMBRE_MES,ANIO_ACADEMICO_ID,TEAM_ID,TIPOS_GUARDIA_ID,anio) values (	3	,	7	,'M','Julio',	1	,	3	,	1	,2019	);
---insert into mes_dia (ID_DIA,ID_MES,NOMBRE_DIA,NOMBRE_MES,ANIO_ACADEMICO_ID,TEAM_ID,TIPOS_GUARDIA_ID,anio) values (	4	,	7	,'J','Julio',	1	,	4	,	1	,2019	);
---insert into mes_dia (ID_DIA,ID_MES,NOMBRE_DIA,NOMBRE_MES,ANIO_ACADEMICO_ID,TEAM_ID,TIPOS_GUARDIA_ID,anio) values (	5	,	7	,'V','Julio',	1	,	5	,	1	,2019	);
---insert into mes_dia (ID_DIA,ID_MES,NOMBRE_DIA,NOMBRE_MES,ANIO_ACADEMICO_ID,TEAM_ID,TIPOS_GUARDIA_ID,anio) values (	6	,	7	,'S','Julio',	1	,	6	,	1	,2019	);
---insert into mes_dia (ID_DIA,ID_MES,NOMBRE_DIA,NOMBRE_MES,ANIO_ACADEMICO_ID,TEAM_ID,TIPOS_GUARDIA_ID,anio) values (	7	,	7	,'D','Julio',	1	,	7	,	1	,2019	);
---insert into mes_dia (ID_DIA,ID_MES,NOMBRE_DIA,NOMBRE_MES,ANIO_ACADEMICO_ID,TEAM_ID,TIPOS_GUARDIA_ID,anio) values (	8	,	7	,'L','Julio',	1	,	8	,	1	,2019	);
---insert into mes_dia (ID_DIA,ID_MES,NOMBRE_DIA,NOMBRE_MES,ANIO_ACADEMICO_ID,TEAM_ID,TIPOS_GUARDIA_ID,anio) values (	9	,	7	,'M','Julio',	1	,	9	,	1	,2019	);
---insert into mes_dia (ID_DIA,ID_MES,NOMBRE_DIA,NOMBRE_MES,ANIO_ACADEMICO_ID,TEAM_ID,TIPOS_GUARDIA_ID,anio) values (	10	,	7	,'M','Julio',	1	,	10	,	1	,2019	);
---insert into mes_dia (ID_DIA,ID_MES,NOMBRE_DIA,NOMBRE_MES,ANIO_ACADEMICO_ID,TEAM_ID,TIPOS_GUARDIA_ID,anio) values (	11	,	7	,'J','Julio',	1	,	1	,	1	,2019	);
---insert into mes_dia (ID_DIA,ID_MES,NOMBRE_DIA,NOMBRE_MES,ANIO_ACADEMICO_ID,TEAM_ID,TIPOS_GUARDIA_ID,anio) values (	12	,	7	,'V','Julio',	1	,	2	,	1	,2019	);
---insert into mes_dia (ID_DIA,ID_MES,NOMBRE_DIA,NOMBRE_MES,ANIO_ACADEMICO_ID,TEAM_ID,TIPOS_GUARDIA_ID,anio) values (	13	,	7	,'S','Julio',	1	,	3	,	1	,2019	);
---insert into mes_dia (ID_DIA,ID_MES,NOMBRE_DIA,NOMBRE_MES,ANIO_ACADEMICO_ID,TEAM_ID,TIPOS_GUARDIA_ID,anio) values (	14	,	7	,'D','Julio',	1	,	4	,	1	,2019	);
---insert into mes_dia (ID_DIA,ID_MES,NOMBRE_DIA,NOMBRE_MES,ANIO_ACADEMICO_ID,TEAM_ID,TIPOS_GUARDIA_ID,anio) values (	15	,	7	,'L','Julio',	1	,	5	,	1	,2019	);
---insert into mes_dia (ID_DIA,ID_MES,NOMBRE_DIA,NOMBRE_MES,ANIO_ACADEMICO_ID,TEAM_ID,TIPOS_GUARDIA_ID,anio) values (	16	,	7	,'M','Julio',	1	,	6	,	1	,2019	);
---insert into mes_dia (ID_DIA,ID_MES,NOMBRE_DIA,NOMBRE_MES,ANIO_ACADEMICO_ID,TEAM_ID,TIPOS_GUARDIA_ID,anio) values (	17	,	7	,'M','Julio',	1	,	7	,	1	,2019	);
---insert into mes_dia (ID_DIA,ID_MES,NOMBRE_DIA,NOMBRE_MES,ANIO_ACADEMICO_ID,TEAM_ID,TIPOS_GUARDIA_ID,anio) values (	18	,	7	,'J','Julio',	1	,	8	,	1	,2019	);
---insert into mes_dia (ID_DIA,ID_MES,NOMBRE_DIA,NOMBRE_MES,ANIO_ACADEMICO_ID,TEAM_ID,TIPOS_GUARDIA_ID,anio) values (	19	,	7	,'V','Julio',	1	,	9	,	1	,2019	);
---insert into mes_dia (ID_DIA,ID_MES,NOMBRE_DIA,NOMBRE_MES,ANIO_ACADEMICO_ID,TEAM_ID,TIPOS_GUARDIA_ID,anio) values (	20	,	7	,'S','Julio',	1	,	10	,	1	,2019	);
---insert into mes_dia (ID_DIA,ID_MES,NOMBRE_DIA,NOMBRE_MES,ANIO_ACADEMICO_ID,TEAM_ID,TIPOS_GUARDIA_ID,anio) values (	21	,	7	,'D','Julio',	1	,	1	,	1	,2019	);
---insert into mes_dia (ID_DIA,ID_MES,NOMBRE_DIA,NOMBRE_MES,ANIO_ACADEMICO_ID,TEAM_ID,TIPOS_GUARDIA_ID,anio) values (	22	,	7	,'L','Julio',	1	,	2	,	1	,2019	);
---insert into mes_dia (ID_DIA,ID_MES,NOMBRE_DIA,NOMBRE_MES,ANIO_ACADEMICO_ID,TEAM_ID,TIPOS_GUARDIA_ID,anio) values (	23	,	7	,'M','Julio',	1	,	3	,	1	,2019	);
---insert into mes_dia (ID_DIA,ID_MES,NOMBRE_DIA,NOMBRE_MES,ANIO_ACADEMICO_ID,TEAM_ID,TIPOS_GUARDIA_ID,anio) values (	24	,	7	,'M','Julio',	1	,	4	,	1	,2019	);
---insert into mes_dia (ID_DIA,ID_MES,NOMBRE_DIA,NOMBRE_MES,ANIO_ACADEMICO_ID,TEAM_ID,TIPOS_GUARDIA_ID,anio) values (	25	,	7	,'J','Julio',	1	,	5	,	1	,2019	);
---insert into mes_dia (ID_DIA,ID_MES,NOMBRE_DIA,NOMBRE_MES,ANIO_ACADEMICO_ID,TEAM_ID,TIPOS_GUARDIA_ID,anio) values (	26	,	7	,'V','Julio',	1	,	6	,	1	,2019	);
---insert into mes_dia (ID_DIA,ID_MES,NOMBRE_DIA,NOMBRE_MES,ANIO_ACADEMICO_ID,TEAM_ID,TIPOS_GUARDIA_ID,anio) values (	27	,	7	,'S','Julio',	1	,	7	,	1	,2019	);
---insert into mes_dia (ID_DIA,ID_MES,NOMBRE_DIA,NOMBRE_MES,ANIO_ACADEMICO_ID,TEAM_ID,TIPOS_GUARDIA_ID,anio) values (	28	,	7	,'D','Julio',	1	,	8	,	1	,2019	);
---insert into mes_dia (ID_DIA,ID_MES,NOMBRE_DIA,NOMBRE_MES,ANIO_ACADEMICO_ID,TEAM_ID,TIPOS_GUARDIA_ID,anio) values (	29	,	7	,'L','Julio',	1	,	9	,	1	,2019	);
---insert into mes_dia (ID_DIA,ID_MES,NOMBRE_DIA,NOMBRE_MES,ANIO_ACADEMICO_ID,TEAM_ID,TIPOS_GUARDIA_ID,anio) values (	30	,	7	,'M','Julio',	1	,	10	,	1	,2019	);
---insert into mes_dia (ID_DIA,ID_MES,NOMBRE_DIA,NOMBRE_MES,ANIO_ACADEMICO_ID,TEAM_ID,TIPOS_GUARDIA_ID,anio) values (	31	,	7	,'M','Julio',	1	,	1	,	1	,2019	);
---insert into mes_dia (ID_DIA,ID_MES,NOMBRE_DIA,NOMBRE_MES,ANIO_ACADEMICO_ID,TEAM_ID,TIPOS_GUARDIA_ID,anio) values (	1	,	8	,'J','Agosto',	1	,	2	,	1	,2019	);
---insert into mes_dia (ID_DIA,ID_MES,NOMBRE_DIA,NOMBRE_MES,ANIO_ACADEMICO_ID,TEAM_ID,TIPOS_GUARDIA_ID,anio) values (	2	,	8	,'V','Agosto',	1	,	3	,	1	,2019	);
---insert into mes_dia (ID_DIA,ID_MES,NOMBRE_DIA,NOMBRE_MES,ANIO_ACADEMICO_ID,TEAM_ID,TIPOS_GUARDIA_ID,anio) values (	3	,	8	,'S','Agosto',	1	,	4	,	1	,2019	);
---insert into mes_dia (ID_DIA,ID_MES,NOMBRE_DIA,NOMBRE_MES,ANIO_ACADEMICO_ID,TEAM_ID,TIPOS_GUARDIA_ID,anio) values (	4	,	8	,'D','Agosto',	1	,	5	,	1	,2019	);
---insert into mes_dia (ID_DIA,ID_MES,NOMBRE_DIA,NOMBRE_MES,ANIO_ACADEMICO_ID,TEAM_ID,TIPOS_GUARDIA_ID,anio) values (	5	,	8	,'L','Agosto',	1	,	6	,	1	,2019	);
---insert into mes_dia (ID_DIA,ID_MES,NOMBRE_DIA,NOMBRE_MES,ANIO_ACADEMICO_ID,TEAM_ID,TIPOS_GUARDIA_ID,anio) values (	6	,	8	,'M','Agosto',	1	,	7	,	1	,2019	);
---insert into mes_dia (ID_DIA,ID_MES,NOMBRE_DIA,NOMBRE_MES,ANIO_ACADEMICO_ID,TEAM_ID,TIPOS_GUARDIA_ID,anio) values (	7	,	8	,'M','Agosto',	1	,	8	,	1	,2019	);
---insert into mes_dia (ID_DIA,ID_MES,NOMBRE_DIA,NOMBRE_MES,ANIO_ACADEMICO_ID,TEAM_ID,TIPOS_GUARDIA_ID,anio) values (	8	,	8	,'J','Agosto',	1	,	9	,	1	,2019	);
+insert into mes_dia (ID_DIA,ID_MES,NOMBRE_DIA,NOMBRE_MES,ANIO_ACADEMICO_ID,TEAM_ID,TIPOS_GUARDIA_ID,anio) values (	1	,	7	,'L','Julio',	1	,	1	,	1	,2019	);
+insert into mes_dia (ID_DIA,ID_MES,NOMBRE_DIA,NOMBRE_MES,ANIO_ACADEMICO_ID,TEAM_ID,TIPOS_GUARDIA_ID,anio) values (	2	,	7	,'M','Julio',	1	,	2	,	1	,2019	);
+insert into mes_dia (ID_DIA,ID_MES,NOMBRE_DIA,NOMBRE_MES,ANIO_ACADEMICO_ID,TEAM_ID,TIPOS_GUARDIA_ID,anio) values (	3	,	7	,'M','Julio',	1	,	3	,	1	,2019	);
+insert into mes_dia (ID_DIA,ID_MES,NOMBRE_DIA,NOMBRE_MES,ANIO_ACADEMICO_ID,TEAM_ID,TIPOS_GUARDIA_ID,anio) values (	4	,	7	,'J','Julio',	1	,	4	,	1	,2019	);
+insert into mes_dia (ID_DIA,ID_MES,NOMBRE_DIA,NOMBRE_MES,ANIO_ACADEMICO_ID,TEAM_ID,TIPOS_GUARDIA_ID,anio) values (	5	,	7	,'V','Julio',	1	,	5	,	1	,2019	);
+insert into mes_dia (ID_DIA,ID_MES,NOMBRE_DIA,NOMBRE_MES,ANIO_ACADEMICO_ID,TEAM_ID,TIPOS_GUARDIA_ID,anio) values (	6	,	7	,'S','Julio',	1	,	6	,	1	,2019	);
+insert into mes_dia (ID_DIA,ID_MES,NOMBRE_DIA,NOMBRE_MES,ANIO_ACADEMICO_ID,TEAM_ID,TIPOS_GUARDIA_ID,anio) values (	7	,	7	,'D','Julio',	1	,	7	,	1	,2019	);
+insert into mes_dia (ID_DIA,ID_MES,NOMBRE_DIA,NOMBRE_MES,ANIO_ACADEMICO_ID,TEAM_ID,TIPOS_GUARDIA_ID,anio) values (	8	,	7	,'L','Julio',	1	,	8	,	1	,2019	);
+insert into mes_dia (ID_DIA,ID_MES,NOMBRE_DIA,NOMBRE_MES,ANIO_ACADEMICO_ID,TEAM_ID,TIPOS_GUARDIA_ID,anio) values (	9	,	7	,'M','Julio',	1	,	9	,	1	,2019	);
+insert into mes_dia (ID_DIA,ID_MES,NOMBRE_DIA,NOMBRE_MES,ANIO_ACADEMICO_ID,TEAM_ID,TIPOS_GUARDIA_ID,anio) values (	10	,	7	,'M','Julio',	1	,	10	,	1	,2019	);
+insert into mes_dia (ID_DIA,ID_MES,NOMBRE_DIA,NOMBRE_MES,ANIO_ACADEMICO_ID,TEAM_ID,TIPOS_GUARDIA_ID,anio) values (	11	,	7	,'J','Julio',	1	,	1	,	1	,2019	);
+insert into mes_dia (ID_DIA,ID_MES,NOMBRE_DIA,NOMBRE_MES,ANIO_ACADEMICO_ID,TEAM_ID,TIPOS_GUARDIA_ID,anio) values (	12	,	7	,'V','Julio',	1	,	2	,	1	,2019	);
+insert into mes_dia (ID_DIA,ID_MES,NOMBRE_DIA,NOMBRE_MES,ANIO_ACADEMICO_ID,TEAM_ID,TIPOS_GUARDIA_ID,anio) values (	13	,	7	,'S','Julio',	1	,	3	,	1	,2019	);
+insert into mes_dia (ID_DIA,ID_MES,NOMBRE_DIA,NOMBRE_MES,ANIO_ACADEMICO_ID,TEAM_ID,TIPOS_GUARDIA_ID,anio) values (	14	,	7	,'D','Julio',	1	,	4	,	1	,2019	);
+insert into mes_dia (ID_DIA,ID_MES,NOMBRE_DIA,NOMBRE_MES,ANIO_ACADEMICO_ID,TEAM_ID,TIPOS_GUARDIA_ID,anio) values (	15	,	7	,'L','Julio',	1	,	5	,	1	,2019	);
+insert into mes_dia (ID_DIA,ID_MES,NOMBRE_DIA,NOMBRE_MES,ANIO_ACADEMICO_ID,TEAM_ID,TIPOS_GUARDIA_ID,anio) values (	16	,	7	,'M','Julio',	1	,	6	,	1	,2019	);
+insert into mes_dia (ID_DIA,ID_MES,NOMBRE_DIA,NOMBRE_MES,ANIO_ACADEMICO_ID,TEAM_ID,TIPOS_GUARDIA_ID,anio) values (	17	,	7	,'M','Julio',	1	,	7	,	1	,2019	);
+insert into mes_dia (ID_DIA,ID_MES,NOMBRE_DIA,NOMBRE_MES,ANIO_ACADEMICO_ID,TEAM_ID,TIPOS_GUARDIA_ID,anio) values (	18	,	7	,'J','Julio',	1	,	8	,	1	,2019	);
+insert into mes_dia (ID_DIA,ID_MES,NOMBRE_DIA,NOMBRE_MES,ANIO_ACADEMICO_ID,TEAM_ID,TIPOS_GUARDIA_ID,anio) values (	19	,	7	,'V','Julio',	1	,	9	,	1	,2019	);
+insert into mes_dia (ID_DIA,ID_MES,NOMBRE_DIA,NOMBRE_MES,ANIO_ACADEMICO_ID,TEAM_ID,TIPOS_GUARDIA_ID,anio) values (	20	,	7	,'S','Julio',	1	,	10	,	1	,2019	);
+insert into mes_dia (ID_DIA,ID_MES,NOMBRE_DIA,NOMBRE_MES,ANIO_ACADEMICO_ID,TEAM_ID,TIPOS_GUARDIA_ID,anio) values (	21	,	7	,'D','Julio',	1	,	1	,	1	,2019	);
+insert into mes_dia (ID_DIA,ID_MES,NOMBRE_DIA,NOMBRE_MES,ANIO_ACADEMICO_ID,TEAM_ID,TIPOS_GUARDIA_ID,anio) values (	22	,	7	,'L','Julio',	1	,	2	,	1	,2019	);
+insert into mes_dia (ID_DIA,ID_MES,NOMBRE_DIA,NOMBRE_MES,ANIO_ACADEMICO_ID,TEAM_ID,TIPOS_GUARDIA_ID,anio) values (	23	,	7	,'M','Julio',	1	,	3	,	1	,2019	);
+insert into mes_dia (ID_DIA,ID_MES,NOMBRE_DIA,NOMBRE_MES,ANIO_ACADEMICO_ID,TEAM_ID,TIPOS_GUARDIA_ID,anio) values (	24	,	7	,'M','Julio',	1	,	4	,	1	,2019	);
+insert into mes_dia (ID_DIA,ID_MES,NOMBRE_DIA,NOMBRE_MES,ANIO_ACADEMICO_ID,TEAM_ID,TIPOS_GUARDIA_ID,anio) values (	25	,	7	,'J','Julio',	1	,	5	,	1	,2019	);
+insert into mes_dia (ID_DIA,ID_MES,NOMBRE_DIA,NOMBRE_MES,ANIO_ACADEMICO_ID,TEAM_ID,TIPOS_GUARDIA_ID,anio) values (	26	,	7	,'V','Julio',	1	,	6	,	1	,2019	);
+insert into mes_dia (ID_DIA,ID_MES,NOMBRE_DIA,NOMBRE_MES,ANIO_ACADEMICO_ID,TEAM_ID,TIPOS_GUARDIA_ID,anio) values (	27	,	7	,'S','Julio',	1	,	7	,	1	,2019	);
+insert into mes_dia (ID_DIA,ID_MES,NOMBRE_DIA,NOMBRE_MES,ANIO_ACADEMICO_ID,TEAM_ID,TIPOS_GUARDIA_ID,anio) values (	28	,	7	,'D','Julio',	1	,	8	,	1	,2019	);
+insert into mes_dia (ID_DIA,ID_MES,NOMBRE_DIA,NOMBRE_MES,ANIO_ACADEMICO_ID,TEAM_ID,TIPOS_GUARDIA_ID,anio) values (	29	,	7	,'L','Julio',	1	,	9	,	1	,2019	);
+insert into mes_dia (ID_DIA,ID_MES,NOMBRE_DIA,NOMBRE_MES,ANIO_ACADEMICO_ID,TEAM_ID,TIPOS_GUARDIA_ID,anio) values (	30	,	7	,'M','Julio',	1	,	10	,	1	,2019	);
+insert into mes_dia (ID_DIA,ID_MES,NOMBRE_DIA,NOMBRE_MES,ANIO_ACADEMICO_ID,TEAM_ID,TIPOS_GUARDIA_ID,anio) values (	31	,	7	,'M','Julio',	1	,	1	,	1	,2019	);
+insert into mes_dia (ID_DIA,ID_MES,NOMBRE_DIA,NOMBRE_MES,ANIO_ACADEMICO_ID,TEAM_ID,TIPOS_GUARDIA_ID,anio) values (	1	,	8	,'J','Agosto',	1	,	2	,	1	,2019	);
+insert into mes_dia (ID_DIA,ID_MES,NOMBRE_DIA,NOMBRE_MES,ANIO_ACADEMICO_ID,TEAM_ID,TIPOS_GUARDIA_ID,anio) values (	2	,	8	,'V','Agosto',	1	,	3	,	1	,2019	);
+insert into mes_dia (ID_DIA,ID_MES,NOMBRE_DIA,NOMBRE_MES,ANIO_ACADEMICO_ID,TEAM_ID,TIPOS_GUARDIA_ID,anio) values (	3	,	8	,'S','Agosto',	1	,	4	,	1	,2019	);
+insert into mes_dia (ID_DIA,ID_MES,NOMBRE_DIA,NOMBRE_MES,ANIO_ACADEMICO_ID,TEAM_ID,TIPOS_GUARDIA_ID,anio) values (	4	,	8	,'D','Agosto',	1	,	5	,	1	,2019	);
+insert into mes_dia (ID_DIA,ID_MES,NOMBRE_DIA,NOMBRE_MES,ANIO_ACADEMICO_ID,TEAM_ID,TIPOS_GUARDIA_ID,anio) values (	5	,	8	,'L','Agosto',	1	,	6	,	1	,2019	);
+insert into mes_dia (ID_DIA,ID_MES,NOMBRE_DIA,NOMBRE_MES,ANIO_ACADEMICO_ID,TEAM_ID,TIPOS_GUARDIA_ID,anio) values (	6	,	8	,'M','Agosto',	1	,	7	,	1	,2019	);
+insert into mes_dia (ID_DIA,ID_MES,NOMBRE_DIA,NOMBRE_MES,ANIO_ACADEMICO_ID,TEAM_ID,TIPOS_GUARDIA_ID,anio) values (	7	,	8	,'M','Agosto',	1	,	8	,	1	,2019	);
+insert into mes_dia (ID_DIA,ID_MES,NOMBRE_DIA,NOMBRE_MES,ANIO_ACADEMICO_ID,TEAM_ID,TIPOS_GUARDIA_ID,anio) values (	8	,	8	,'J','Agosto',	1	,	9	,	1	,2019	);
 --insert into mes_dia (ID_DIA,ID_MES,NOMBRE_DIA,NOMBRE_MES,ANIO_ACADEMICO_ID,TEAM_ID,TIPOS_GUARDIA_ID,anio) values (	9	,	8	,'V','Agosto',	1	,	10	,	1	,2019	);
 --insert into mes_dia (ID_DIA,ID_MES,NOMBRE_DIA,NOMBRE_MES,ANIO_ACADEMICO_ID,TEAM_ID,TIPOS_GUARDIA_ID,anio) values (	10	,	8	,'S','Agosto',	1	,	1	,	1	,2019	);
 --insert into mes_dia (ID_DIA,ID_MES,NOMBRE_DIA,NOMBRE_MES,ANIO_ACADEMICO_ID,TEAM_ID,TIPOS_GUARDIA_ID,anio) values (	11	,	8	,'D','Agosto',	1	,	2	,	1	,2019	);

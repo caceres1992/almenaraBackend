@@ -3,10 +3,7 @@ package com.hospital.almenara.controller;
 import com.hospital.almenara.entity.Mes;
 import com.hospital.almenara.services.MesServicio;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -18,9 +15,9 @@ public class MesController
     @Autowired
     MesServicio servicio;
 
-    @GetMapping
-    public List<Mes> findAll()
+    @GetMapping("/{grupo}")
+    public List<Mes> findAllByGrupo(@PathVariable String grupo)
     {
-        return servicio.getAll();
+        return servicio.getAllbyGrupo(grupo);
     }
 }

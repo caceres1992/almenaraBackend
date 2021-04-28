@@ -43,6 +43,7 @@ public class Doctor implements Serializable {
     @ManyToOne
     private Nivel nivel;
     private Date registeredAt;
+    private String grupo;
     @PrePersist
     public void prePersist(){
         status = true;
